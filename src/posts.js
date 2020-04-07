@@ -24,7 +24,7 @@ import ThumbUpAltRoundedIcon from '@material-ui/icons/ThumbUpAltRounded';
 import BorderColorRoundedIcon from '@material-ui/icons/BorderColorRounded';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
-import TabPanel from '../src/components/tab-layout';
+import ImgMediaCard from './components/card';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -95,7 +95,7 @@ const moveTowardsAnnouncement = () => {
       <Divider />
       <List>
         {['Profile'].map((text, index) => (
-          <Paper>
+          <Paper onClick = {moveTowardsProfile}>
           <ListItem button key={text}  component={Link}>
             <ListItemIcon>{<AccountCircleRoundedIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -126,7 +126,7 @@ const moveTowardsAnnouncement = () => {
       </List>
       <List>
         {['Posts'].map((text, index) => (
-          <Paper onClick = {moveTowardsPosts}>
+          <Paper>
           <ListItem button key={text}>
             <ListItemIcon>{<MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -173,7 +173,7 @@ const moveTowardsAnnouncement = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Lawyer's Community Services App
+          Lawyer's Community Services App
           </Typography>
         </Toolbar>
       </AppBar>
@@ -210,7 +210,7 @@ const moveTowardsAnnouncement = () => {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-       <TabPanel />
+        <ImgMediaCard />
       </main>
     </div>
   );

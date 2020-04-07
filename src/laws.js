@@ -24,7 +24,7 @@ import ThumbUpAltRoundedIcon from '@material-ui/icons/ThumbUpAltRounded';
 import BorderColorRoundedIcon from '@material-ui/icons/BorderColorRounded';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
-import TabPanel from '../src/components/tab-layout';
+import ToggleFormVisibility from './components/toggleButton';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -69,24 +69,24 @@ function ResponsiveDrawer(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-const moveTowardsLaw = () =>{
-  window.location = '/laws';
-}
-const moveTowardsProfile = () => {
-  window.location = '/dashboared';
-}
-const moveTowardsEditLaws = () => {
-  window.location = '/edit-laws';
-}
-const moveTowardsPosts = () => {
-  window.location = '/posts';
-}
-const moveTowardsFeedback = () => {
-  window.location = '/feedback';
-}
-const moveTowardsAnnouncement = () => {
-  window.location = '/annoucement';
-}
+  const moveTowardsLaw = () => {
+    window.location = '/laws';
+  }
+  const moveTowardsProfile = () => {
+    window.location = '/dashboared';
+  }
+  const moveTowardsEditLaws = () => {
+    window.location = '/edit-laws';
+  }
+  const moveTowardsPosts = () => {
+    window.location = '/posts';
+  }
+  const moveTowardsFeedback = () => {
+    window.location = '/feedback';
+  }
+  const moveTowardsAnnouncement = () => {
+    window.location = '/annoucement';
+  }
 
 
   const drawer = (
@@ -95,63 +95,63 @@ const moveTowardsAnnouncement = () => {
       <Divider />
       <List>
         {['Profile'].map((text, index) => (
-          <Paper>
-          <ListItem button key={text}  component={Link}>
-            <ListItemIcon>{<AccountCircleRoundedIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+          <Paper onClick={moveTowardsProfile}>
+            <ListItem button key={text} component={Link}>
+              <ListItemIcon>{<AccountCircleRoundedIcon />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
           </Paper>
         ))}
       </List>
       <List>
         {['Laws'].map((text, index) => (
-          <Paper onClick = {moveTowardsLaw}>
-          <ListItem button key = {text} >
-            <ListItemIcon >{<MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+          <Paper >
+            <ListItem button key={text} >
+              <ListItemIcon >{<MailIcon />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
           </Paper>
         ))}
       </List>
       <List>
-        <Paper onClick = {moveTowardsEditLaws}>
-        {['Edit Laws'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{<BorderColorRoundedIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-          
-        ))}
+        <Paper onClick={moveTowardsEditLaws}>
+          {['Edit Laws'].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>{<BorderColorRoundedIcon />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+
+          ))}
         </Paper>
       </List>
       <List>
         {['Posts'].map((text, index) => (
-          <Paper onClick = {moveTowardsPosts}>
-          <ListItem button key={text}>
-            <ListItemIcon>{<MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+          <Paper onClick={moveTowardsPosts}>
+            <ListItem button key={text}>
+              <ListItemIcon>{<MailIcon />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
           </Paper>
         ))}
       </List>
-      
+
       <List>
         {['Customer Feedback'].map((text, index) => (
-          <Paper onClick = {moveTowardsFeedback}>
-          <ListItem button key={text}>
-            <ListItemIcon>{<ThumbUpAltRoundedIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+          <Paper onClick={moveTowardsFeedback}>
+            <ListItem button key={text}>
+              <ListItemIcon>{<ThumbUpAltRoundedIcon />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
           </Paper>
         ))}
       </List>
       <List>
         {['Announcments'].map((text, index) => (
-          <Paper onClick = {moveTowardsAnnouncement}>
-          <ListItem button key={text}>
-            <ListItemIcon>{<SpeakerPhoneOutlinedIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+          <Paper onClick={moveTowardsAnnouncement}>
+            <ListItem button key={text}>
+              <ListItemIcon>{<SpeakerPhoneOutlinedIcon />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
           </Paper>
         ))}
       </List>
@@ -210,7 +210,7 @@ const moveTowardsAnnouncement = () => {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-       <TabPanel />
+            <ToggleFormVisibility />
       </main>
     </div>
   );

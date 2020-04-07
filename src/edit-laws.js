@@ -24,7 +24,6 @@ import ThumbUpAltRoundedIcon from '@material-ui/icons/ThumbUpAltRounded';
 import BorderColorRoundedIcon from '@material-ui/icons/BorderColorRounded';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
-import TabPanel from '../src/components/tab-layout';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -69,6 +68,7 @@ function ResponsiveDrawer(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
 const moveTowardsLaw = () =>{
   window.location = '/laws';
 }
@@ -87,7 +87,7 @@ const moveTowardsFeedback = () => {
 const moveTowardsAnnouncement = () => {
   window.location = '/annoucement';
 }
-
+ 
 
   const drawer = (
     <div>
@@ -95,7 +95,7 @@ const moveTowardsAnnouncement = () => {
       <Divider />
       <List>
         {['Profile'].map((text, index) => (
-          <Paper>
+          <Paper onClick = {moveTowardsProfile}>
           <ListItem button key={text}  component={Link}>
             <ListItemIcon>{<AccountCircleRoundedIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -114,7 +114,7 @@ const moveTowardsAnnouncement = () => {
         ))}
       </List>
       <List>
-        <Paper onClick = {moveTowardsEditLaws}>
+        <Paper>
         {['Edit Laws'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{<BorderColorRoundedIcon />}</ListItemIcon>
@@ -173,7 +173,7 @@ const moveTowardsAnnouncement = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Lawyer's Community Services App
+          Lawyer's Community Services App
           </Typography>
         </Toolbar>
       </AppBar>
@@ -210,7 +210,7 @@ const moveTowardsAnnouncement = () => {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-       <TabPanel />
+       <Typography paragraph>Edit laws here.</Typography>
       </main>
     </div>
   );
